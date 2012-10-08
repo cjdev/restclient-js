@@ -1,0 +1,51 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>com.cj</groupId>
+    <artifactId>restclient-js</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
+    <name>${pom.artifactId}</name>
+    <packaging>jar</packaging>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>com.cj.jshintmojo</groupId>
+                <artifactId>jshint-maven-plugin</artifactId>
+                <version>0.0.2-SNAPSHOT</version>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>lint</goal>
+                        </goals>
+                    </execution>
+                </executions>
+                <configuration>
+               <options>browser,bitwise,curly,latedef,undef,eqeqeq,onevar,immed,nomen,noarg,noempty,nonew,newcap</options> <!-- see http://www.jshint.com/options/ -->
+				<excludes>
+					<exclude>src/test/dependencies</exclude>
+				</excludes>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <configuration>
+                    <source>1.6</source>
+                    <target>1.6</target>
+                </configuration>
+            </plugin>
+
+        </plugins>
+    </build>
+
+    <dependencies>
+        <dependency>
+          <groupId>com.googlecode</groupId>
+          <artifactId>qunit-test-driver</artifactId>
+          <version>1.0.1</version>
+          <scope>test</scope>
+        </dependency>
+    </dependencies>
+</project>
